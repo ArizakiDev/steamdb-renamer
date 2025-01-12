@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide - Steam API Key</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="fixed top-4 right-4 z-50">
+        <div class="bg-white rounded-lg shadow-lg flex overflow-hidden">
+            <button onclick="setLanguage('fr')" id="fr-btn" class="px-4 py-2 flex items-center hover:bg-gray-100 transition">
+                <img src="" alt="" class="mr-2"> FR
+            </button>
+            <button onclick="setLanguage('en')" id="en-btn" class="px-4 py-2 flex items-center hover:bg-gray-100 transition border-l">
+                <img src="" alt="" class="mr-2"> EN
+            </button>
+        </div>
+    </div>
+
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold mb-4">
+                <i class="fab fa-steam"></i> 
+                <span lang="fr">Guide Steam Web API</span>
+                <span lang="en">Steam Web API Guide</span>
+            </h1>
+            <p class="text-xl opacity-90">
+                <span lang="fr">Apprenez à obtenir votre clé API Steam en quelques étapes simples</span>
+                <span lang="en">Learn how to get your Steam API key in a few simple steps</span>
+            </p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-blue-800">
+                <i class="fas fa-list-check mr-2"></i>
+                <span lang="fr">Prérequis</span>
+                <span lang="en">Prerequisites</span>
+            </h2>
+            <ul class="space-y-3">
+                <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2"></i>
+                    <span lang="fr">Un compte Steam actif</span>
+                    <span lang="en">An active Steam account</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2"></i>
+                    <span lang="fr">Au moins un achat sur le compte Steam (pour vérifier qu'il est légitime)</span>
+                    <span lang="en">At least one purchase on the Steam account (to verify it's legitimate)</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="space-y-8">
+            <!-- Step 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                    <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">1</span>
+                    <h3 class="text-xl font-bold text-gray-800">
+                        <span lang="fr">Connexion au portail développeur Steam</span>
+                        <span lang="en">Log in to the Steam Developer Portal</span>
+                    </h3>
+                </div>
+                <div class="ml-11">
+                    <p class="mb-4">
+                        <span lang="fr">Rendez-vous sur le portail développeur Steam :</span>
+                        <span lang="en">Go to the Steam Developer Portal:</span>
+                    </p>
+                    <a href="https://steamcommunity.com/dev/apikey" target="_blank" 
+                       class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        <span lang="fr">Portail Steam API</span>
+                        <span lang="en">Steam API Portal</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                    <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">2</span>
+                    <h3 class="text-xl font-bold text-gray-800">
+                        <span lang="fr">Accepter les conditions d'utilisation</span>
+                        <span lang="en">Accept the Terms of Use</span>
+                    </h3>
+                </div>
+                <div class="ml-11">
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-yellow-400"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-yellow-700">
+                                    <span lang="fr">Lisez attentivement les conditions d'utilisation de l'API Steam. L'utilisation abusive peut entraîner la révocation de votre clé.</span>
+                                    <span lang="en">Read the Steam API Terms of Use carefully. Misuse may result in your key being revoked.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                    <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">3</span>
+                    <h3 class="text-xl font-bold text-gray-800">
+                        <span lang="fr">Renseigner le domaine</span>
+                        <span lang="en">Enter the domain</span>
+                    </h3>
+                </div>
+                <div class="ml-11">
+                    <p class="mb-4">
+                        <span lang="fr">Entrez le domaine sur lequel vous utiliserez l'API :</span>
+                        <span lang="en">Enter the domain where you'll use the API:</span>
+                    </p>
+                    <ul class="list-disc ml-6 space-y-2 text-gray-700">
+                        <li>
+                            <span lang="fr">Pour une application locale : utilisez</span>
+                            <span lang="en">For a local application: use</span>
+                            <code class="bg-gray-100 px-2 py-1 rounded">localhost</code>
+                        </li>
+                        <li>
+                            <span lang="fr">Pour un site web : utilisez votre nom de domaine</span>
+                            <span lang="en">For a website: use your domain name</span>
+                        </li>
+                        <li>
+                            <span lang="fr">Pour une application desktop : utilisez</span>
+                            <span lang="en">For a desktop application: use</span>
+                            <code class="bg-gray-100 px-2 py-1 rounded">127.0.0.1</code>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                    <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">4</span>
+                    <h3 class="text-xl font-bold text-gray-800">
+                        <span lang="fr">Récupérer votre clé API</span>
+                        <span lang="en">Get your API key</span>
+                    </h3>
+                </div>
+                <div class="ml-11">
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-green-700">
+                                    <span lang="fr">Votre clé API sera affichée. Conservez-la précieusement et ne la partagez jamais !</span>
+                                    <span lang="en">Your API key will be displayed. Keep it safe and never share it!</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 bg-red-50 border-l-4 border-red-400 p-4">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-shield-alt text-red-400"></i>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium text-red-800">
+                        <span lang="fr">Important - Sécurité</span>
+                        <span lang="en">Important - Security</span>
+                    </h3>
+                    <ul class="mt-2 text-red-700 list-disc ml-6">
+                        <li>
+                            <span lang="fr">Ne partagez jamais votre clé API</span>
+                            <span lang="en">Never share your API key</span>
+                        </li>
+                        <li>
+                            <span lang="fr">Ne la commettez pas dans un dépôt Git public</span>
+                            <span lang="en">Don't commit it to a public Git repository</span>
+                        </li>
+                        <li>
+                            <span lang="fr">Utilisez des variables d'environnement pour la stocker</span>
+                            <span lang="en">Use environment variables to store it</span>
+                        </li>
+                        <li>
+                            <span lang="fr">Surveillez son utilisation régulièrement</span>
+                            <span lang="en">Monitor its usage regularly</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>
+                <span lang="fr">Créé avec 💙 par Arizaki</span>
+                <span lang="en">Created with 💙 by Arizaki</span>
+            </p>
+            <p class="mt-2 text-gray-400">
+                <span lang="fr">Pour plus d'informations, consultez la</span>
+                <span lang="en">For more information, check the</span>
+                <a href="https://partner.steamgames.com/doc/webapi" class="text-blue-400 hover:text-blue-300">
+                    <span lang="fr">documentation officielle Steam</span>
+                    <span lang="en">official Steam documentation</span>
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelectorAll(`[lang="${lang}"]`).forEach(el => {
+                el.style.display = 'inline';
+            });
+
+            document.getElementById('fr-btn').classList.toggle('bg-blue-100', lang === 'fr');
+            document.getElementById('en-btn').classList.toggle('bg-blue-100', lang === 'en');
+            localStorage.setItem('preferred-language', lang);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferred-language') || 'fr';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
